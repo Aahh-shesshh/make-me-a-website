@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-// import { ColorInput } from "@mantine/core";
-// import { ColorInput } from "../DesignLayouts/SmallFieldInput";
-import { ColorInput, Select } from "@mantine/core";
+import { useState } from "react";
+import { ColorInput } from "@mantine/core";
 import { SmallFieldLayout } from "../../../components/SmallFieldInput";
 
 export const ConicGradient = ({
@@ -16,21 +14,6 @@ export const ConicGradient = ({
     Array(gradientColorCount).fill("#000000")
   );
 
-  const val = {
-    backgroundImage: element.style.backgroundImage,
-  };
-
-  const [value, setValue] = useState(val);
-  useEffect(() => {
-    if (element !== null) {
-      const tempVal = {
-        backgroundImage: element.style.backgroundImage,
-      };
-
-      setValue({ ...tempVal });
-      return;
-    }
-  }, [element.style, element]);
   const onChange = (val: number | string, type: string, index?: number) => {
     if (type === "gradientColor" && index !== undefined) {
       const tempGradients = [...gradients];
